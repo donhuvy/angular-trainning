@@ -1,0 +1,22 @@
+.cart-popover{
+    position: fixed;
+    background: gray;
+    color:#fff;
+    top:50px;    
+    display: none;
+    height: 300px;
+    overflow-y: scroll;
+}
+.cart-popover:hover{
+    display: block !important;
+
+}
+h3,p{
+    color:#fff;
+}
+.mat-list-item{
+    border-bottom: 1px solid #fff;
+}
+ .mat-mini-fab:hover ~ .cart-popover{
+    display: block !important;
+}   

@@ -1,0 +1,6 @@
+@import '~@angular/material/theming';
+$secondary-theme-color-primary:mat-palette($mat-indigo);
+$secondary-theme-color-accent:mat-palette($mat-blue);
+$secondary-theme-color-warn:mat-palette($mat-red);
+$secondary-theme:mat-dark-theme($secondary-theme-color-primary, $secondary-theme-color-accent, $secondary-theme-color-warn);
+

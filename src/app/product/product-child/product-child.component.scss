@@ -1,0 +1,16 @@
+.mat-card-image{
+    width: 100px;
+    height: 100px;
+    object-fit:contain;
+}
+.mat-card-content{
+    text-align: center;
+}
+.checked{
+    position: absolute;
+    top:10px;
+    right: 10px;
+}
+::ng-deep .mat-chip-list-wrapper{
+    justify-content: center;
+}

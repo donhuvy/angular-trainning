@@ -1,0 +1,58 @@
+<mat-sidenav-container class="side-nav-container">
+  <mat-sidenav class="mat-side-nav" mode="side" opened>
+    <mat-list dense>
+      <mat-list-item>
+        <h3>Total Products: {{mProductsSelect.length}}</h3>
+      </mat-list-item>
+      <mat-list-item>
+        <h3>Total Price:{{mTotalPrice|number}}</h3>
+      </mat-list-item>
+    </mat-list>
+    <!-- customer -->
+    <mat-list dense [formGroup]="mFormCustomer" class="customer-form">
+      <mat-list-item>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" required formControlName='name'>
+          <mat-error>name can not empty</mat-error>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Phone" formControlName='phone'>
+          <mat-error>phone can not empty</mat-error>
+        </mat-form-field>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Address" formControlName='address'>
+          <mat-error>address can not empty</mat-error>
+        </mat-form-field>
+      </mat-list-item>
+    </mat-list>
+    <mat-list-item >
+      <button mat-raised-button (click)="onClickCheckOut()" color="warn" fxFlex="100" [disabled]="mFormCustomer.invalid">CheckOut</button>
+    </mat-list-item>
+  </mat-sidenav>
+  <!-- Body -->
+  <mat-sidenav-content [formGroup]="mFormGroup">
+    <mat-list fxLayout="row wrap" formArrayName='products'>
+      <mat-list-item *ngFor="let product of mProducts;let i = index" class="cart-item" [formGroupName]="i">
+        <img [src]="product.image_url" matListAvatar>
+        <h3 matLine class="product-name">{{product.name}}</h3>
+        <p matLine class="product-price">{{product.price | number}}</p>
+        <h3 matLine class="product-price-total">Total : {{(product.price * numberInput.value)|number}}</h3>
+        <div class="product-number" fxLayout="row wrap">
+          <button mat-icon-button (click)="onClickRemove(i)">
+            -
+          </button>
+          <input type="text" formControlName="number" #numberInput>
+          <button mat-icon-button (click)="onClickAdd(i)">
+            +
+          </button>
+        </div>
+        <mat-checkbox color="primary" formControlName="select" (change)="onSelectProduct(i)"></mat-checkbox>
+      </mat-list-item>
+    </mat-list>
+    <app-no-result *ngIf="mProducts.length==0" [text]="'Danh sách trống !'"></app-no-result>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <a href="" [routerLink]="''">Shop App Train</a>
+  <button mat-button [routerLink]="page.link" *ngFor="let page of pages" routerLinkActive="active">
+    <mat-icon class="mat-18" color="warn">{{page.icon}}</mat-icon>
+    {{page.title}}
+  </button>
+  <!-- <mat-form-field>
+    <mat-select [(value)]="selectedTheme" (selectionChange)="onSelectTheme()">
+      <mat-option *ngFor="let theme of themes" [value]="theme">{{theme}}</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  <app-cart-total></app-cart-total>
+</mat-toolbar>
