@@ -1,19 +1,25 @@
-@import '../../variables.scss';
-.active{
-    border-bottom: 1px solid blue;
-}
-.mat-toolbar{
-    position: fixed;
-    z-index: 2;
-    top: 0px;
-}
-
-app-cart-total{
-    flex:1;
-    display: inline-flex;
-    justify-content: flex-end;
-}
-a{
-    text-decoration: none;
-    color:#fff;
-}
+    .active{
+        border-bottom: 1px solid blue;
+    }
+    .mat-toolbar{
+        position: fixed;
+        z-index: 2;
+        top: 0px;
+    }
+    a{
+        text-decoration: none;
+        color:#fff;
+    }
+    
+    .mat-select-value-text{
+        color:red !important;
+    }
+    app-cart-total{
+        flex:1;
+        justify-content: flex-end;
+        display: inline-flex;
+    }
+   
+    
+    
+    

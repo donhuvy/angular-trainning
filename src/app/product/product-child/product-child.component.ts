@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { Product } from '../product';
 import { CartTotalService } from 'src/app/core/cart-total.service';
 @Component({
   selector: 'app-product-child',
   templateUrl: './product-child.component.html',
-  styleUrls: ['./product-child.component.scss']
+  styleUrls: ['./product-child.component.scss'],
+  encapsulation:ViewEncapsulation.Emulated
 })
 export class ProductChildComponent implements OnInit {
   @Input('product') mProduct: Product;

@@ -10,7 +10,8 @@
                 </mat-form-field>
             </mat-list-item>
             <mat-selection-list [(ngModel)]="mCategoriesFilter" (selectionChange)="onSelectCategory()">
-                <mat-list-option (select)="onSelectCategory()" labelPosition="before" *ngFor="let category of mCategories" name="formControlName" [value]="category">
+                <mat-list-option (select)="onSelectCategory()" labelPosition="before"
+                    *ngFor="let category of mCategories" name="formControlName" [value]="category">
                     {{category}}
                 </mat-list-option>
             </mat-selection-list>
@@ -19,10 +20,12 @@
     <!-- Body -->
     <mat-sidenav-content>
         <div fxLayout="row wrap" fxLayout.xs="column">
-            <app-product-child class="product-item" fxFlex="33.333" fxFlex.xs="100" *ngFor="let product of mProductsFilter"
-                [product]="product">
+            <app-product-child class="product-item" fxFlex="33.333" fxFlex.xs="100"
+                *ngFor="let product of mProductsFilter" [product]="product">
+                <h3>Hello</h3>
             </app-product-child>
         </div>
+        <app-spinner [text]="'Loading more data ...'"></app-spinner>
         <app-no-result *ngIf="mProductsFilter.length==0"></app-no-result>
     </mat-sidenav-content>
 </mat-sidenav-container>

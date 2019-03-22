@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-@import "./themes/primary-theme.scss";
-@import "./themes/secondary-theme.scss";
+@import "./themes/themes.scss";
 @import './variables.scss';
 html{
     height: 100%;
@@ -10,13 +9,5 @@ body{
     margin: 0px;
     height: calc(100% - 64px);
 }
-
-// theming
-.scondary-theme{
-    @include angular-material-theme($secondary-theme);
-
-}
-.primary-theme{
-    @include angular-material-theme($primary-theme);
-}
+    
 

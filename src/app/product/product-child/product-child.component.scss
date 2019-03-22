@@ -11,6 +11,17 @@
     top:10px;
     right: 10px;
 }
-::ng-deep .mat-chip-list-wrapper{
+ .mat-chip-list-wrapper{
     justify-content: center;
+}
+
+.container{
+    position: relative;
+}
+.popup{
+    position: absolute;
+    top:0px;
+}
+ ::ng-deep .mat-chip-list-wrapper{
+   justify-content: center;
 }

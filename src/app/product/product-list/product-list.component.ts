@@ -44,4 +44,14 @@ export class ProductListComponent implements OnInit,OnDestroy {
   onSearchProduct(){
     this.mProductsFilter = this.productService.searchProducts(this.mProducts,this.mNameFilter,this.mCategoriesFilter);
   }
+  onScrollDown(){
+    this.mProducts.forEach((pro)=>{
+      this.mProductsFilter.push(pro);
+    })
+    console.log('scroll');
+  }
+  onUp(){
+    console.log('up');
+
+  }
 }

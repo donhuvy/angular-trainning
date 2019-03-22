@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModule } from '../mat/mat.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from '../shared/shared.module';
 
@@ -14,7 +13,6 @@ import { OrderListComponent } from './order-list/order-list.component';
   imports: [
     CommonModule,
     OrderRoutingModule,
-    MatModule,
     FlexLayoutModule,
     SharedModule
   ]

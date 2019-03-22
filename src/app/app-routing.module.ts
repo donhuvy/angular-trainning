@@ -7,6 +7,8 @@ const routes: Routes = [
   {path:'cart',loadChildren:'./cart/cart.module#CartModule'},
   {path:'order',loadChildren:'./order/order.module#OrderModule'},
   {path:'checkout',loadChildren:'./checkout/checkout.module#CheckoutModule'},
+  {path:'user',loadChildren:'./user/user.module#UserModule'},
+  {path:'restaurant',loadChildren:'./restaurant/restaurant.module#RestaurantModule'},
   {path:'',redirectTo:'product',pathMatch:'full'},
   {path:'**',component:PageNotFoundComponent}
 ];

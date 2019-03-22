@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModule } from '../mat/mat.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
@@ -16,7 +15,6 @@ import { CartListComponent } from './cart-list/cart-list.component';
   imports: [
     CommonModule,
     CartRoutingModule,
-    MatModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     SharedModule

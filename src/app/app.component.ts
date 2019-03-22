@@ -7,9 +7,8 @@ import { ThemeService } from './core/theme.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'shopapp-tranning';
   mTheme:string='';
-  @HostBinding('class') mThemeClass:string;
+  @HostBinding('class') mThemeClass:string='';
   constructor(private themeService:ThemeService){
 
   }

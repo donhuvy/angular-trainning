@@ -1,0 +1,26 @@
+<div class="container">
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{mRestaurant.name}}</mat-card-title>
+        <mat-card-subtitle>{{mRestaurant.cuisines}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content align="center">
+        <img  [src]="mRestaurant.featured_image==''?'../../../assets/imgs/restaurant.jpeg':mRestaurant.featured_image">
+        <mat-list dense>
+            <mat-list-item class="res-info">
+              <mat-icon mat-list-icon class="mat-18">start</mat-icon>
+              <div matLine>{{mRestaurant.user_rating.aggregate_rating}}</div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-list-item class="res-info">
+                <mat-icon mat-list-icon class="mat-18">add_location</mat-icon>
+                <div matLine>{{mRestaurant.location.address}}</div>
+                <mat-divider></mat-divider>
+              </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+    <mat-card-actions align="center">
+      <button mat-raised-button color="warn" (click)="onClick" [routerLink]="['../restaurant-detail',1]">Detail</button>
+    </mat-card-actions>
+</mat-card>
+</div>

@@ -1,0 +1,33 @@
+.container {
+  padding: 10px;
+  .mat-card-subtitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    white-space: nowrap;
+  }
+  ::ng-deep .mat-card-title {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  ::ng-deep .mat-card-header-text {
+    width: 100%;
+  }
+  .res-info {
+    ::ng-deep .mat-list-item-content {
+      padding: 0px !important;
+    }
+    ::ng-deep .mat-list-text {
+      text-align: right;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit:contain;
+    object-position: center;
+    height: 125px;
+  }
+}

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatModule } from '../mat/mat.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
@@ -17,7 +16,6 @@ import { ProductChildComponent } from './product-child/product-child.component';
   imports: [
     CommonModule,
     ProductRoutingModule,
-    MatModule,
     FlexLayoutModule,
     FormsModule,
     SharedModule
