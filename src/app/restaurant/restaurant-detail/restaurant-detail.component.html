@@ -1,4 +1,19 @@
-<p>
-  restaurant-detail works!
-</p>
-<button mat-raised-button (click)="test()">Action</button>
+<div class="container" fxLayout="row wrap" *ngIf="mRestaurant">
+  <div fxFlex="70">
+    <img [src]="mRestaurant.thumb==''?'../../../assets/imgs/restaurant.jpeg':mRestaurant.thumb" alt="">
+    <h3>{{mRestaurant.name}}</h3>
+    <mat-list desen>
+        <mat-list-item>
+          <mat-icon class="mat-18" matListIcon>add_location</mat-icon>
+          <p matLine>{{mRestaurant.location.address}}</p>
+        </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <app-res-detail-menu></app-res-detail-menu>
+    <div style="padding:10px"></div>
+    <app-res-detail-review [restaurant]="mRestaurant"></app-res-detail-review>
+  </div>
+  <div fxFlex="30">
+
+    </div>
+</div>

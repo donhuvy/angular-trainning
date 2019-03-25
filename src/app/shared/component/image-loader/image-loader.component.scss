@@ -1,0 +1,58 @@
+.container{
+    height: 125px;
+    position: relative;
+}
+img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    opacity: 0;
+}
+.image-loaded {
+    opacity: 1 !important;
+}
+.progress-image-loading{
+    position: absolute;
+    display: flex;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background: #dedede;
+    opacity: 0;
+    animation-name: Fade;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    z-index: 2;
+
+}
+.progress-image-backdrop{
+    position: absolute;
+    display: flex;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 1;
+
+}
+@keyframes Fade{
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 0.25;
+    }
+    50%{
+        opacity:0.5;
+    }
+    75%{
+        opacity:0.75;
+    }
+    100%{
+        opacity: 1;
+    }
+}

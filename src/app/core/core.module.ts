@@ -6,7 +6,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 import { CartTotalComponent } from './cart-total/cart-total.component';
 import { CartTotalService } from './cart-total.service';
-import { LoaderService } from './loader.service/loader.service';
+import { LoaderService } from './services/loader.service/loader.service';
+import { httpInterceptorProviders } from './services/http-interceptor';
 
 @NgModule({
   declarations: [CartTotalComponent],
@@ -23,7 +24,8 @@ import { LoaderService } from './loader.service/loader.service';
   ],
   providers:[
     CartTotalService,
-    LoaderService
+    LoaderService,
+    httpInterceptorProviders
   ]
 })
 export class CoreModule { }

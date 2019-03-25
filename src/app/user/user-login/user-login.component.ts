@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { LoaderService } from '../../core/loader.service/loader.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { LoaderService } from '../../core/services/loader.service/loader.service';
 
 @Component({
   selector: 'app-user-login',
@@ -17,14 +17,14 @@ export class UserLoginComponent implements OnInit {
   }
   onClickLogin(){
     this.loaderService.showLoading();
-    this.userService.login(this.mUsername,this.mPassword).subscribe(res=>{
+    setTimeout(()=>{
       this.loaderService.hideLoading();
-      this.goToUserList();
-    },e=>{
-      this.loaderService.hideLoading();
-    },
-    ()=>{this.loaderService.hideLoading()}
-    )
+      this.onResLogin();
+    })
+  }
+  onResLogin(){
+    localStorage.setItem('user','true');
+    this.router.navigate(['restaurant'])
   }
   goToUserList(){
     this.router.navigate(['../user-list'],{relativeTo:this.activedRoute});

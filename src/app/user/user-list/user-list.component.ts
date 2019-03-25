@@ -1,6 +1,6 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { UserService } from '../user.service';
-import { LoaderService } from '../../core/loader.service/loader.service';
+import { LoaderService } from '../../core/services/loader.service/loader.service';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',

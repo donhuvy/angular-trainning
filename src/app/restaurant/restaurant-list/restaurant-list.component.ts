@@ -1,53 +1,65 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef,OnDestroy } from '@angular/core';
 import { RestaurantService } from '../restaurant.service';
 import { Category } from '../category';
 import { Restaurant } from '../restaurant';
-import { LoaderService } from 'src/app/core/loader.service/loader.service';
-
+import { LoaderService } from '../../core/services/loader.service/loader.service';
+LoaderService
 @Component({
   selector: 'app-restaurant-list',
   templateUrl: './restaurant-list.component.html',
   styleUrls: ['./restaurant-list.component.scss']
 })
-export class RestaurantListComponent implements OnInit {
+export class RestaurantListComponent implements OnInit,OnDestroy {
   mCategoriesList:Array<Category>=[];
+  mCategoriesFilter:any;
   mRestaurantsList:Array<Restaurant>=[];
+  isShowSpinner:boolean=false;
   isShowLoadMore:boolean=false;
+  isLoading:boolean = true;
   constructor(private restaurantService:RestaurantService,private loaderService:LoaderService) { }
 
   ngOnInit() {
-    // this.restaurantService.doFilterCategory();
     this.getCategoriesList();
     this.searchRestaurant();
   }
+  ngOnDestroy(){
+    this.restaurantService.resetSearchRes();
+  }
   getCategoriesList(){
     this.restaurantService.getCategoriesList().subscribe((res)=>{
-      console.log(res);
       this.mCategoriesList = this.mCategoriesList.concat(res);
     },e=>{
-      console.log(e);
     })
   }
   searchRestaurant(){
     this.loaderService.showLoading();
-    this.restaurantService.serchRestaurant({
-      start:0,
-      count:10
-    }).subscribe((res=>{
+    this.restaurantService.serchRestaurant().subscribe((res=>{
       this.mRestaurantsList = this.mRestaurantsList.concat(res);
-      // this.isShowLoadMore = false;
-      console.log(res);
+      this.isShowLoadMore = false;
+      this.isShowSpinner = false;
+      this.isLoading = false;
       this.loaderService.hideLoading();
     }),e=>{
       this.loaderService.hideLoading();
 
     })
   }
+  onSelectCategory(){
+    this.mRestaurantsList = [];
+    this.loaderService.showLoading();
+    this.isLoading = true;
+    this.restaurantService.doFilterPage(0);
+    this.restaurantService.doFilterCategory(this.mCategoriesFilter);
+  }
   onScrollDown(){
     this.isShowLoadMore = true;
-    // this.restaurantService.doFilterPage();
+    this.restaurantService.doLoadMore();
   }
-  onScrollUp(){
-
+  onSearch(query:string){
+    this.mRestaurantsList = [];
+    this.isShowSpinner = true;
+    this.isLoading = true;
+    this.restaurantService.doFilterPage(0);
+    this.restaurantService.doFilterQuery(query);
   }
 }

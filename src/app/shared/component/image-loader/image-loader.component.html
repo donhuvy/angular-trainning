@@ -1,0 +1,6 @@
+<div class="container">
+    <img  #imageElement [src]="image" [class.image-loaded]="isLoaded">
+    <div class="progress-image-backdrop" *ngIf="!isLoaded"></div>
+    <div class="progress-image-loading" *ngIf="!isLoaded"></div>
+</div>
+
